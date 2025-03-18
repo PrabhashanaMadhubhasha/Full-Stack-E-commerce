@@ -2,7 +2,7 @@ import React from 'react'
 import {assets} from '../assets/assets'
 import { useState } from 'react'
 import axios from 'axios'
-import {backendUrl} from '../APP'
+//import {backendUrl} from '../APP'
 import { toast } from 'react-toastify'
 import PropTypes from 'prop-types';
 
@@ -79,7 +79,7 @@ const Add = ({token}) => {
         if (images[key]) formData.append(key, images[key]);
       });
 
-      const response =await axios.post(backendUrl+"/api/product/add",formData,{headers:{token}});
+      const response =await axios.post("https://full-stack-e-commerce-backend.vercel.app"+"/api/product/add",formData,{headers:{token}});
       if(response.data.success){
         toast.success(response.data.message);
         setName('');
